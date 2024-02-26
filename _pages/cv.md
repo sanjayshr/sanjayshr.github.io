@@ -1,64 +1,42 @@
 ---
 layout: archive
-title: "CV"
+title: "Sanjay Shiradwade"
 permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+- **Phone:** +91 8867082139
+- **Email:** sanjayshiradwade@gmail.com
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+## Bio
+Senior Software Engineer with 6 years in microservices development using Golang. Skilled in leading software engineering projects optimizing system performance.
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+## Technical Skills
+- **Programming Languages:** Golang, Python, C, JavaScript, Node.js
+- **Development Frameworks and Libraries:** Gin, Gorilla Mux, GORM, React.js, Next.js
+- **Containerization:** Docker, Kubernetes
+- **Version Control:** Git
+- **CI/CD:** Jenkins
+- **Configuration Management:** Ansible
+- **Monitoring and Logging:** Prometheus, Grafana
+- **Collaboration Tools:** Jira, Notion, Trello
+- **Cloud Services:** AWS, VMware
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+## Work Experience
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+### Senior Software Engineer / Senior Golang Developer
+**Synamedia, Karnataka, India** - 02/2019 to 02/2024
+- Led the design and implementation of Go microservices, significantly enhancing system responsiveness and load capacity.
+- Managed SingleStore databases and Kubernetes for microservices, optimizing cloud resource utilization.
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+### Software Engineer / Full Stack Developer
+**Roado, Karnataka, India** - 04/2018 to 02/2019
+- Handled backend and frontend development, ensuring seamless integration and real-time data processing, thus enhancing operational efficiency and customer satisfaction.
+- Pioneered a live vehicle tracking feature using GPS and Cell ID-based monitoring, significantly enhancing user engagement.
+
+## Education
+
+**Master of Computer Applications (MCA)**  
+VTU, Belagavi, Karnataka, India - 07/2014 to 08/2017
