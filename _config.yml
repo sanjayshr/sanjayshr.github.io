@@ -21,7 +21,7 @@ repository               : "sanjayshr/sanjayshr.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "me.jpeg"
   name             : "Sanjay Shiradwade"
   pronouns         : "he/him"  
   bio              : "Senior Software Engineer"
