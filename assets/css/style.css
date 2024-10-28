@@ -75,6 +75,8 @@ section {
     margin-bottom: 2rem;
     padding: 1rem;
     border-left: 2px solid var(--gray);
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 h1, h2, h3 {
@@ -141,4 +143,43 @@ li::before {
 
 .company {
     color: var(--green);
+}
+
+/* Update the typing-related styles */
+.typing-content {
+    position: relative;
+    opacity: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.cursor {
+    position: fixed;
+    width: 2px;
+    height: 1.2em;
+    background-color: var(--fg0);
+    animation: cursor-blink 1s infinite;
+    z-index: 1000;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Remove the previous typing animation styles */
+.delay-1, .delay-2, .delay-3, .delay-4 {
+    animation-delay: 0s;
+}
+
+/* Update section reveal animation */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.section-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
