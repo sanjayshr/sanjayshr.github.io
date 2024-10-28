@@ -22,22 +22,63 @@
 body {
     background-color: var(--bg0);
     color: var(--fg0);
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
     line-height: 1.6;
+    padding: 20px;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem;
+    background-color: var(--bg1);
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-header {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background-color: var(--bg1);
-    border-radius: 8px;
+/* Terminal window styling */
+.terminal-header {
+    background: var(--bg0);
+    padding: 10px;
+    border-radius: 6px 6px 0 0;
+    margin: -20px -20px 20px -20px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.terminal-button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-button.red { background-color: var(--red); }
+.terminal-button.yellow { background-color: var(--yellow); }
+.terminal-button.green { background-color: var(--green); }
+
+.prompt {
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+.prompt::before {
+    content: "➜ ";
+    color: var(--aqua);
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-left: 2px solid var(--gray);
+}
+
+h1, h2, h3 {
+    font-weight: normal;
 }
 
 h1 {
@@ -45,78 +86,59 @@ h1 {
     margin-bottom: 1rem;
 }
 
+h2::before {
+    content: "# ";
+    color: var(--gray);
+}
+
 h2 {
     color: var(--aqua);
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--gray);
-    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+h3::before {
+    content: "## ";
+    color: var(--gray);
 }
 
 h3 {
     color: var(--purple);
-    margin-bottom: 1rem;
-}
-
-.title {
-    color: var(--orange);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.contact {
-    margin: 1rem 0;
+    margin-bottom: 0.5rem;
 }
 
 .social a {
     color: var(--blue);
-    font-size: 1.5rem;
-    margin: 0 1rem;
     text-decoration: none;
-    transition: color 0.3s;
+    margin: 0 10px;
+    font-size: 1.2rem;
 }
 
 .social a:hover {
     color: var(--yellow);
 }
 
-section {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background-color: var(--bg1);
-    border-radius: 8px;
+ul {
+    list-style: none;
 }
 
-.skill-groups {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+li::before {
+    content: "→ ";
+    color: var(--orange);
 }
 
-.job {
-    margin-bottom: 2rem;
+.contact p {
+    color: var(--fg1);
+}
+
+.contact i {
+    color: var(--purple);
+    width: 20px;
+}
+
+.skill-group p {
+    color: var(--fg1);
 }
 
 .company {
     color: var(--green);
-    margin-bottom: 1rem;
-}
-
-ul {
-    list-style-position: inside;
-    margin-left: 1rem;
-}
-
-li {
-    color: var(--fg1);
-    margin-bottom: 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
-    
-    .skill-groups {
-        grid-template-columns: 1fr;
-    }
 }
