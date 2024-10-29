@@ -150,4 +150,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     typeAllContent();
+
+    // Add hamburger menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const neoTree = document.querySelector('.neo-tree');
+    const mainContent = document.querySelector('.main-content');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        neoTree.classList.toggle('show');
+    });
+
+    // Close menu when clicking outside
+    mainContent.addEventListener('click', () => {
+        if (neoTree.classList.contains('show')) {
+            hamburger.classList.remove('active');
+            neoTree.classList.remove('show');
+        }
+    });
+
+    // Close menu when clicking a nav link
+    const navLinks = document.querySelectorAll('.tree-item');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            neoTree.classList.remove('show');
+        });
+    });
 });
