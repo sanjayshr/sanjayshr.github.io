@@ -10,113 +10,157 @@
     <script src="assets/js/script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="terminal-header">
-            <div class="terminal-buttons">
-                <div class="terminal-button red"></div>
-                <div class="terminal-button yellow"></div>
-                <div class="terminal-button green"></div>
+    <div class="main-content">
+        <div class="content-wrapper">
+            <div class="line-numbers">
+                <!-- Line numbers will be added via JavaScript -->
             </div>
-            <p class="prompt">~/portfolio</p>
+            <div class="container">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-button red"></div>
+                        <div class="terminal-button yellow"></div>
+                        <div class="terminal-button green"></div>
+                    </div>
+                    <p class="prompt">~/portfolio</p>
+                </div>
+
+                <header>
+                    <div class="profile">
+                        <h1 class="typing-content">$ whoami</h1>
+                        <p class="title typing-content">> Sanjay Shiradwade | Senior Software Engineer</p>
+                        <div class="contact">
+                            <p class="typing-content"><i class="fas fa-envelope"></i> sanjayshiradwade@gmail.com</p>
+                            <p class="typing-content"><i class="fas fa-phone"></i> +91 8867082139</p>
+                        </div>
+                        <div class="social">
+                            <a href="https://github.com/sanjayshr" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/sanjay-shiradwade-6183451b3" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://x.com/deferreddev" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </header>
+
+                <section class="bio section-reveal">
+                    <h2 class="typing-content">About Me</h2>
+                    <p class="typing-content">Senior Software Engineer with 6 years in microservices development using Golang. Skilled in leading software engineering projects optimizing system performance.</p>
+                </section>
+
+                <section class="skills">
+                    <h2 class="typing-content">Technical Skills</h2>
+                    <div class="skill-groups">
+                        <div class="skill-group">
+                            <h3 class="typing-content">Programming Languages</h3>
+                            <p class="typing-content">Golang, Python, C, JavaScript, Node.js</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Development Frameworks & Libraries</h3>
+                            <p class="typing-content">Gin, Gorilla Mux, GORM, React.js, Next.js</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Containerization</h3>
+                            <p class="typing-content">Docker, Kubernetes</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Version Control & CI/CD</h3>
+                            <p class="typing-content">Git, Jenkins</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Configuration Management</h3>
+                            <p class="typing-content">Ansible</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Monitoring and Logging</h3>
+                            <p class="typing-content">Prometheus, Grafana</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Collaboration Tools</h3>
+                            <p class="typing-content">Jira, Notion, Trello</p>
+                        </div>
+                        <div class="skill-group">
+                            <h3 class="typing-content">Cloud Services</h3>
+                            <p class="typing-content">AWS, VMware</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="experience">
+                    <h2 class="typing-content">Work Experience</h2>
+                    <div class="job">
+                        <h3 class="typing-content">Senior Golang Developer</h3>
+                        <p class="company typing-content">IBM, India | Feb 2024 - Present</p>
+                        <ul>
+                            <li class="typing-content">Working on Quantum Safe Explorer</li>
+                            <li class="typing-content">Developed proof-of-concept implementations demonstrating quantum-safe cryptographic algorithms</li>
+                            <li class="typing-content">Implemented cryptographic migration patterns in Go</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="typing-content">Senior Software Engineer / Senior Golang Developer</h3>
+                        <p class="company typing-content">Synamedia, Karnataka, India | Feb 2019 - Feb 2024</p>
+                        <ul>
+                            <li class="typing-content">Led the design and implementation of Go microservices, significantly enhancing system responsiveness and load capacity</li>
+                            <li class="typing-content">Managed SingleStore databases and Kubernetes for microservices, optimizing cloud resource utilization</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="job">
+                        <h3 class="typing-content">Software Engineer / Full Stack Developer</h3>
+                        <p class="company typing-content">Roado, Karnataka, India | Apr 2018 - Feb 2019</p>
+                        <ul>
+                            <li class="typing-content">Handled backend and frontend development, ensuring seamless integration and real-time data processing</li>
+                            <li class="typing-content">Pioneered a live vehicle tracking feature using GPS and Cell ID-based monitoring</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="education">
+                    <h2 class="typing-content">Education</h2>
+                    <div class="degree">
+                        <h3 class="typing-content">Master of Computer Applications (MCA)</h3>
+                        <p class="typing-content">VTU, Belagavi, Karnataka, India | 2014 - 2017</p>
+                    </div>
+                </section>
+            </div>
         </div>
-
-        <header>
-            <div class="profile">
-                <h1 class="typing-content">$ whoami</h1>
-                <p class="title typing-content">> Sanjay Shiradwade | Senior Software Engineer</p>
-                <div class="contact">
-                    <p class="typing-content"><i class="fas fa-envelope"></i> sanjayshiradwade@gmail.com</p>
-                    <p class="typing-content"><i class="fas fa-phone"></i> +91 8867082139</p>
-                </div>
-                <div class="social">
-                    <a href="https://github.com/sanjayshr" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/sanjay-shiradwade-6183451b3" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/deferreddev" target="_blank"><i class="fab fa-x-twitter"></i></a>
-                </div>
-            </div>
-        </header>
-
-        <section class="bio section-reveal">
-            <h2 class="typing-content">About Me</h2>
-            <p class="typing-content">Senior Software Engineer with 6 years in microservices development using Golang. Skilled in leading software engineering projects optimizing system performance.</p>
-        </section>
-
-        <section class="skills">
-            <h2 class="typing-content">Technical Skills</h2>
-            <div class="skill-groups">
-                <div class="skill-group">
-                    <h3 class="typing-content">Programming Languages</h3>
-                    <p class="typing-content">Golang, Python, C, JavaScript, Node.js</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Development Frameworks & Libraries</h3>
-                    <p class="typing-content">Gin, Gorilla Mux, GORM, React.js, Next.js</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Containerization</h3>
-                    <p class="typing-content">Docker, Kubernetes</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Version Control & CI/CD</h3>
-                    <p class="typing-content">Git, Jenkins</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Configuration Management</h3>
-                    <p class="typing-content">Ansible</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Monitoring and Logging</h3>
-                    <p class="typing-content">Prometheus, Grafana</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Collaboration Tools</h3>
-                    <p class="typing-content">Jira, Notion, Trello</p>
-                </div>
-                <div class="skill-group">
-                    <h3 class="typing-content">Cloud Services</h3>
-                    <p class="typing-content">AWS, VMware</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="experience">
-            <h2 class="typing-content">Work Experience</h2>
-            <div class="job">
-                <h3 class="typing-content">Senior Golang Developer</h3>
-                <p class="company typing-content">IBM, India | Feb 2024 - Present</p>
-                <ul>
-                    <li class="typing-content">Working on Quantum Safe Explorer</li>
-                    <li class="typing-content">Developed proof-of-concept implementations demonstrating quantum-safe cryptographic algorithms</li>
-                    <li class="typing-content">Implemented cryptographic migration patterns in Go</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h3 class="typing-content">Senior Software Engineer / Senior Golang Developer</h3>
-                <p class="company typing-content">Synamedia, Karnataka, India | Feb 2019 - Feb 2024</p>
-                <ul>
-                    <li class="typing-content">Led the design and implementation of Go microservices, significantly enhancing system responsiveness and load capacity</li>
-                    <li class="typing-content">Managed SingleStore databases and Kubernetes for microservices, optimizing cloud resource utilization</li>
-                </ul>
-            </div>
-            
-            <div class="job">
-                <h3 class="typing-content">Software Engineer / Full Stack Developer</h3>
-                <p class="company typing-content">Roado, Karnataka, India | Apr 2018 - Feb 2019</p>
-                <ul>
-                    <li class="typing-content">Handled backend and frontend development, ensuring seamless integration and real-time data processing</li>
-                    <li class="typing-content">Pioneered a live vehicle tracking feature using GPS and Cell ID-based monitoring</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="education">
-            <h2 class="typing-content">Education</h2>
-            <div class="degree">
-                <h3 class="typing-content">Master of Computer Applications (MCA)</h3>
-                <p class="typing-content">VTU, Belagavi, Karnataka, India | 2014 - 2017</p>
-            </div>
-        </section>
     </div>
+
+    <nav class="neo-tree">
+        <div class="neo-tree-header">
+            Explorer
+        </div>
+        <a href="#home" class="tree-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#profile" class="tree-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+        <a href="#about" class="tree-item">
+            <i class="fas fa-info-circle"></i>
+            <span>About Me</span>
+        </a>
+        <a href="#blog" class="tree-item">
+            <i class="fas fa-blog"></i>
+            <span>Blog</span>
+        </a>
+        <a href="#contact" class="tree-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+        <a href="#connect" class="tree-item">
+            <i class="fas fa-network-wired"></i>
+            <span>Connect</span>
+        </a>
+    </nav>
+
+    <div class="vim-status">
+        <span class="mode">NORMAL</span>
+        <span class="file-info">portfolio.md [+]</span>
+        <span class="position">100%</span>
+    </div>
+
 </body>
 </html>

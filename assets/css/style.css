@@ -1,6 +1,7 @@
 :root {
     --bg0: #282828;
     --bg1: #3c3836;
+    --bg2: #504945;
     --fg0: #fbf1c7;
     --fg1: #ebdbb2;
     --gray: #928374;
@@ -22,18 +23,114 @@
 body {
     background-color: var(--bg0);
     color: var(--fg0);
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
-    padding: 20px;
+    height: 100vh;
+    display: flex;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    background-color: var(--bg1);
+/* Vim-like status bar */
+.vim-status {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg2);
+    color: var(--fg0);
+    padding: 4px 10px;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vim-status .mode {
+    color: var(--green);
+    font-weight: bold;
+}
+
+.vim-status .file-info {
+    color: var(--fg1);
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
     padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 30px; /* Space for status bar */
+}
+
+/* Neo-tree style sidebar */
+.neo-tree {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 250px;
+    background-color: var(--bg1);
+    padding: 10px;
+    border-right: 1px solid var(--bg2);
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.neo-tree-header {
+    color: var(--yellow);
+    padding: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--bg2);
+}
+
+.tree-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--fg1);
+    text-decoration: none;
+}
+
+.tree-item:hover {
+    background-color: var(--bg2);
+}
+
+.tree-item.active {
+    background-color: var(--bg2);
+    color: var(--yellow);
+}
+
+.tree-item i {
+    width: 20px;
+    color: var(--blue);
+}
+
+/* Line numbers */
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.line-numbers {
+    color: var(--gray);
+    text-align: right;
+    padding-right: 10px;
+    user-select: none;
+    min-width: 30px;
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+}
+
+.line-numbers div {
+    opacity: 0.5;
+    height: 1.6em;
+    line-height: 1.6;
+}
+
+.line-numbers .current-line {
+    color: var(--fg0);
+    opacity: 1;
 }
 
 /* Terminal window styling */

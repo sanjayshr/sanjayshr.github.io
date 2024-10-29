@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script loaded');
     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
     let globalCursor = null;
+    let isScrolling = false;
+    const TYPING_SPEED = 30;
 
     function createCursor() {
         if (!globalCursor) {
@@ -11,6 +14,57 @@ document.addEventListener('DOMContentLoaded', () => {
         return globalCursor;
     }
 
+    // Initialize all line numbers at once
+    function initializeLineNumbers() {
+        try {
+            const lineNumbers = document.querySelector('.line-numbers');
+            const container = document.querySelector('.container');
+            
+            if (!lineNumbers || !container) {
+                console.error('Required elements not found');
+                return;
+            }
+
+            const containerHeight = container.scrollHeight;
+            const lineHeight = parseInt(getComputedStyle(container).lineHeight);
+            const totalLines = Math.ceil(containerHeight / lineHeight);
+            
+            lineNumbers.innerHTML = '';
+            
+            for (let i = 1; i <= totalLines; i++) {
+                const lineNum = document.createElement('div');
+                lineNum.textContent = i;
+                lineNumbers.appendChild(lineNum);
+            }
+        } catch (error) {
+            console.error('Error initializing line numbers:', error);
+        }
+    }
+
+    async function smoothScrollTo(element) {
+        if (isScrolling) return;
+        isScrolling = true;
+
+        const mainContent = document.querySelector('.main-content');
+        const elementRect = element.getBoundingClientRect();
+        const elementTop = elementRect.top;
+        const viewportHeight = window.innerHeight;
+        
+        const viewportMiddleStart = viewportHeight * 0.3;
+        const viewportMiddleEnd = viewportHeight * 0.7;
+        
+        if (elementTop < viewportMiddleStart || elementTop > viewportMiddleEnd) {
+            const targetScroll = mainContent.scrollTop + elementTop - (viewportHeight / 2);
+            mainContent.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+            });
+            await sleep(300);
+        }
+        
+        isScrolling = false;
+    }
+
     function updateCursorPosition(element, charIndex) {
         const range = document.createRange();
         
@@ -19,50 +73,44 @@ document.addEventListener('DOMContentLoaded', () => {
             range.setEnd(element.childNodes[0], charIndex);
             
             const rect = range.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const cursorTop = rect.top + window.scrollY;
-            
-            // Update cursor position
             globalCursor.style.left = `${rect.right}px`;
             globalCursor.style.top = `${rect.top}px`;
 
-            // Calculate scroll position
-            const desiredPosition = cursorTop - (viewportHeight / 2);
-            
-            // Only scroll if the cursor is below the middle of the viewport
-            if (rect.top > viewportHeight / 1.5) {
-                window.scrollTo({
-                    top: desiredPosition,
-                    behavior: 'smooth'
-                });
-            }
+            smoothScrollTo(element);
         }
     }
 
-    async function typeWriter(element, text, speed = 30) { // Reduced speed for smoother typing
+    async function typeWriter(element, text) {
         element.style.opacity = '1';
         let i = 0;
-        
-        // Handle elements with icons
         const hasIcon = element.querySelector('i');
+        
         if (hasIcon) {
             const iconHTML = hasIcon.outerHTML;
             element.innerHTML = iconHTML + ' ';
-            await sleep(speed);
+            await sleep(TYPING_SPEED);
         }
 
         while (i < text.length) {
             if (!hasIcon) {
                 element.textContent += text.charAt(i);
             } else {
-                element.innerHTML = hasIcon.outerHTML + ' ' + text;
+                element.innerHTML = hasIcon.outerHTML + ' ' + text.substring(0, i + 1);
             }
+            
             updateCursorPosition(element, hasIcon ? text.length : i + 1);
             i++;
-            await sleep(speed);
+            await sleep(TYPING_SPEED);
         }
-        await sleep(100); // Slight pause after each element
+        
+        await sleep(50);
         return Promise.resolve();
+    }
+
+    async function revealSection(section) {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0)';
+        await sleep(200);
     }
 
     async function typeAllContent() {
@@ -70,9 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const sections = document.querySelectorAll('section');
         const header = document.querySelector('header');
         
-        // Reset scroll position
-        window.scrollTo({top: 0, behavior: 'instant'});
-        await sleep(500);
+        const mainContent = document.querySelector('.main-content');
+        mainContent.scrollTo({top: 0, behavior: 'instant'});
+
+        // Initialize all line numbers at start
+        initializeLineNumbers();
 
         // Type header content
         const headerElements = header.querySelectorAll('.typing-content');
@@ -84,18 +134,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Type sections
         for (let section of sections) {
-            section.style.opacity = '1';
+            await revealSection(section);
             const elements = section.querySelectorAll('.typing-content');
             for (let element of elements) {
                 const originalText = element.textContent.trim();
                 element.textContent = '';
                 await typeWriter(element, originalText);
             }
-            await sleep(500); // Pause between sections
         }
 
-        // Keep cursor visible at the end
-        await sleep(1000);
+        // Update line numbers one final time after all content is typed
+        await sleep(500);
+        initializeLineNumbers();
         globalCursor.style.display = 'none';
     }
 
