@@ -26,7 +26,8 @@ body {
     font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
     height: 100vh;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 250px;
 }
 
 /* Vim-like status bar */
@@ -63,13 +64,10 @@ body {
 
 /* Neo-tree style sidebar */
 .neo-tree {
-    position: fixed;
-    right: 0;
-    top: 0;
     width: 250px;
     background-color: var(--bg1);
     padding: 10px;
-    border-right: 1px solid var(--bg2);
+    border-left: 1px solid var(--bg2);
     height: 100vh;
     overflow-y: auto;
     z-index: 1000;
